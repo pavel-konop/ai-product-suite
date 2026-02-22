@@ -1,0 +1,247 @@
+/* Eastern Peak Brand Styling for Light Mode */
+/* Based on actual easternpeak.com website */
+
+:root {
+  /* Eastern Peak Brand Colors - from actual website */
+  --ep-green: #00C853;
+  --ep-green-dark: #00B248;
+  --ep-green-light: #00E676;
+  --ep-navy: #0A1628;
+  --ep-navy-light: #1A2A3A;
+  --ep-dark: #1a1a2e;
+  --ep-gray-900: #2D3748;
+  --ep-gray-700: #4A5568;
+  --ep-gray-500: #718096;
+  --ep-gray-300: #E2E8F0;
+  --ep-gray-100: #F7FAFC;
+  --ep-white: #FFFFFF;
+}
+
+/* Light Mode - Eastern Peak Theme */
+body.eastern-peak-theme {
+  background: var(--ep-white) !important;
+  color: var(--ep-navy) !important;
+}
+
+.eastern-peak-theme nav {
+  background: var(--ep-white) !important;
+  border-bottom-color: var(--ep-gray-300) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.eastern-peak-theme nav a {
+  color: var(--ep-gray-700) !important;
+  font-weight: 500;
+}
+
+.eastern-peak-theme nav a:hover {
+  color: var(--ep-green) !important;
+}
+
+/* Cards and containers */
+.eastern-peak-theme .bg-slate-900\/50,
+.eastern-peak-theme .bg-slate-900 {
+  background: var(--ep-white) !important;
+  border-color: var(--ep-gray-300) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.eastern-peak-theme .bg-slate-950,
+.eastern-peak-theme .bg-slate-950\/50 {
+  background: var(--ep-gray-100) !important;
+  border-color: var(--ep-gray-300) !important;
+}
+
+.eastern-peak-theme .bg-slate-800,
+.eastern-peak-theme .bg-slate-800\/50 {
+  background: var(--ep-gray-100) !important;
+  border-color: var(--ep-gray-300) !important;
+}
+
+/* Text colors */
+.eastern-peak-theme .text-white,
+.eastern-peak-theme .text-slate-100 {
+  color: var(--ep-navy) !important;
+}
+
+.eastern-peak-theme .text-slate-200,
+.eastern-peak-theme .text-slate-300 {
+  color: var(--ep-gray-700) !important;
+}
+
+.eastern-peak-theme .text-slate-400,
+.eastern-peak-theme .text-slate-500 {
+  color: var(--ep-gray-500) !important;
+}
+
+/* Primary buttons - Eastern Peak Green */
+.eastern-peak-theme .bg-purple-600,
+.eastern-peak-theme .bg-blue-600,
+.eastern-peak-theme .bg-indigo-600,
+.eastern-peak-theme .bg-green-600 {
+  background: var(--ep-green) !important;
+  color: white !important;
+}
+
+.eastern-peak-theme .bg-purple-600:hover,
+.eastern-peak-theme .bg-blue-600:hover,
+.eastern-peak-theme .bg-indigo-600:hover,
+.eastern-peak-theme .bg-green-600:hover {
+  background: var(--ep-green-dark) !important;
+}
+
+.eastern-peak-theme .bg-purple-700,
+.eastern-peak-theme .bg-blue-700 {
+  background: var(--ep-green-dark) !important;
+}
+
+/* Secondary buttons */
+.eastern-peak-theme button[class*="secondary"],
+.eastern-peak-theme .border-purple-600,
+.eastern-peak-theme .border-blue-600 {
+  border-color: var(--ep-green) !important;
+  color: var(--ep-green) !important;
+}
+
+.eastern-peak-theme button[class*="secondary"]:hover,
+.eastern-peak-theme .border-purple-600:hover,
+.eastern-peak-theme .border-blue-600:hover {
+  background: var(--ep-green) !important;
+  color: white !important;
+}
+
+/* Accent colors */
+.eastern-peak-theme .text-purple-400,
+.eastern-peak-theme .text-blue-400,
+.eastern-peak-theme .text-indigo-400,
+.eastern-peak-theme .text-green-400 {
+  color: var(--ep-green) !important;
+}
+
+.eastern-peak-theme .text-purple-500,
+.eastern-peak-theme .text-blue-500 {
+  color: var(--ep-green-dark) !important;
+}
+
+/* Border colors */
+.eastern-peak-theme .border-slate-800,
+.eastern-peak-theme .border-slate-700 {
+  border-color: var(--ep-gray-300) !important;
+}
+
+.eastern-peak-theme .border-slate-600 {
+  border-color: var(--ep-gray-500) !important;
+}
+
+/* Input fields */
+.eastern-peak-theme input,
+.eastern-peak-theme textarea,
+.eastern-peak-theme select {
+  background: var(--ep-white) !important;
+  border-color: var(--ep-gray-300) !important;
+  color: var(--ep-navy) !important;
+}
+
+.eastern-peak-theme input:focus,
+.eastern-peak-theme textarea:focus,
+.eastern-peak-theme select:focus {
+  border-color: var(--ep-green) !important;
+  box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.15) !important;
+}
+
+.eastern-peak-theme input::placeholder,
+.eastern-peak-theme textarea::placeholder {
+  color: var(--ep-gray-500) !important;
+}
+
+/* Hover states */
+.eastern-peak-theme .hover\:bg-slate-800:hover {
+  background: var(--ep-gray-100) !important;
+}
+
+.eastern-peak-theme .hover\:bg-slate-700:hover {
+  background: var(--ep-gray-300) !important;
+}
+
+.eastern-peak-theme .hover\:text-blue-400:hover {
+  color: var(--ep-green) !important;
+}
+
+/* Gradient backgrounds */
+.eastern-peak-theme .bg-gradient-to-br,
+.eastern-peak-theme .bg-gradient-to-r {
+  background: linear-gradient(135deg, var(--ep-gray-100) 0%, var(--ep-white) 100%) !important;
+}
+
+/* Status colors - keep them recognizable */
+.eastern-peak-theme .text-green-400 {
+  color: #00C853 !important;
+}
+
+.eastern-peak-theme .text-yellow-400 {
+  color: #FFB300 !important;
+}
+
+.eastern-peak-theme .text-red-400 {
+  color: #E53935 !important;
+}
+
+/* Scrollbar styling for Eastern Peak theme */
+.eastern-peak-theme ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.eastern-peak-theme ::-webkit-scrollbar-track {
+  background: var(--ep-gray-100);
+}
+
+.eastern-peak-theme ::-webkit-scrollbar-thumb {
+  background: var(--ep-gray-300);
+  border-radius: 4px;
+}
+
+.eastern-peak-theme ::-webkit-scrollbar-thumb:hover {
+  background: var(--ep-gray-500);
+}
+
+/* Specific component overrides */
+.eastern-peak-theme .bg-blue-900\/50 {
+  background: rgba(0, 200, 83, 0.1) !important;
+}
+
+.eastern-peak-theme .text-blue-400 {
+  color: var(--ep-green) !important;
+}
+
+.eastern-peak-theme .bg-purple-900\/50 {
+  background: rgba(0, 200, 83, 0.1) !important;
+}
+
+.eastern-peak-theme .text-purple-400 {
+  color: var(--ep-green) !important;
+}
+
+/* Hover border colors */
+.eastern-peak-theme .hover\:border-blue-500:hover {
+  border-color: var(--ep-green) !important;
+}
+
+.eastern-peak-theme .hover\:border-purple-500:hover {
+  border-color: var(--ep-green) !important;
+}
+
+.eastern-peak-theme .hover\:border-red-500:hover {
+  border-color: var(--ep-green) !important;
+}
+
+/* Eastern Peak link colors */
+.eastern-peak-theme .text-blue-400,
+.eastern-peak-theme .hover\:text-blue-300:hover {
+  color: var(--ep-green) !important;
+}
+
+.eastern-peak-theme .text-red-600,
+.eastern-peak-theme .hover\:text-red-700:hover {
+  color: var(--ep-green-dark) !important;
+}
