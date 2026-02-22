@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  type        String
+  title       String
+  input       String
+  output      String
+  modelUsed   String
+  createdAt   DateTime @default(now())
+  parentId    String?
+  parent      Project? @relation("DerivedFrom", fields: [parentId], references: [id])
+  children    Project[] @relation("DerivedFrom")
+}
