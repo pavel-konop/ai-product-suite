@@ -2,15 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./eastern-peak.css";
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { auth, signOut } from "@/auth";
 
 export const metadata: Metadata = {
   title: "AI Product Suite",
   description: "Requirements Analysis & Landing Page Builder",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-slate-950 text-white min-h-screen transition-colors duration-300" suppressHydrationWarning>
@@ -19,11 +23,47 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
               <Link href="/" className="font-bold text-xl eastern-peak:text-slate-900">AI Suite</Link>
               <div className="flex items-center gap-6 text-sm">
-                <Link href="/analyzer" className="hover:text-blue-400 transition-colors eastern-peak:text-slate-600 eastern-peak:hover:text-green-500">Analyzer</Link>
-                <Link href="/landing-builder" className="hover:text-blue-400 transition-colors eastern-peak:text-slate-600 eastern-peak:hover:text-green-500">Landing Builder</Link>
-                <Link href="/history" className="hover:text-blue-400 transition-colors eastern-peak:text-slate-600 eastern-peak:hover:text-green-500">History</Link>
-                <Link href="/settings" className="hover:text-blue-400 transition-colors eastern-peak:text-slate-600 eastern-peak:hover:text-green-500">Settings</Link>
+                {session && (
+                  <>
+                    <Link href="/analyzer" className="hover:text-blue-400 transition-colors eastern-peak:text-slate-600 eastern-peak:hover:text-green-500">Analyzer</Link>
+                    <Link href="/landing-builder" className="hover:text-blue-400 transition-colors eastern-peak:text-slate-600 eastern-peak:hover:text-green-500">Landing Builder</Link>
+                    <Link href="/history" className="hover:text-blue-400 transition-colors eastern-peak:text-slate-600 eastern-peak:hover:text-green-500">History</Link>
+                  </>
+                )}
                 <ThemeToggle />
+                {session?.user ? (
+                  <div className="flex items-center gap-3">
+                    {session.user.image && (
+                      <Image
+                        src={session.user.image}
+                        alt={session.user.name ?? "User"}
+                        width={28}
+                        height={28}
+                        className="rounded-full"
+                      />
+                    )}
+                    <form
+                      action={async () => {
+                        "use server";
+                        await signOut({ redirectTo: "/auth/signin" });
+                      }}
+                    >
+                      <button
+                        type="submit"
+                        className="text-slate-400 hover:text-white transition-colors eastern-peak:text-slate-500 eastern-peak:hover:text-slate-900"
+                      >
+                        Sign out
+                      </button>
+                    </form>
+                  </div>
+                ) : (
+                  <Link
+                    href="/auth/signin"
+                    className="text-slate-400 hover:text-white transition-colors eastern-peak:text-slate-500 eastern-peak:hover:text-slate-900"
+                  >
+                    Sign in
+                  </Link>
+                )}
               </div>
             </div>
           </nav>

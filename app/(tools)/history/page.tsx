@@ -18,9 +18,18 @@ export default function HistoryPage() {
         try {
             const res = await fetch('/api/history');
             const data = await res.json();
+            
+            // Handle error response or non-array data
+            if (!res.ok || data.error || !Array.isArray(data)) {
+                console.error('API error:', data.error || 'Invalid response');
+                setProjects([]);
+                return;
+            }
+            
             setProjects(data);
         } catch (error) {
             console.error('Failed to fetch history:', error);
+            setProjects([]);
         } finally {
             setLoading(false);
         }
